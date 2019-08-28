@@ -664,8 +664,8 @@ function installOpenVPN () {
 	esac
 
 	# Generate a random, alphanumeric identifier of 16 characters for CN and one for server name
-	SERVER_CN="cn_$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)"
-	SERVER_NAME="server_$(head /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1)"
+	SERVER_CN="GLOBALSSH"
+	SERVER_NAME="GLOBALSSH"
 	echo "set_var EASYRSA_REQ_CN $SERVER_CN" >> vars
 
 	# Workaround to remove unharmful error until easy-rsa 3.0.7
