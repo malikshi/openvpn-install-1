@@ -949,6 +949,9 @@ WantedBy=multi-user.target" > /etc/systemd/system/iptables-openvpn.service
 	fi
 
 	# client-template.txt is created so we have a template to add further users later
+	echo "##### WELCOME TO GLOBALSSH #####" > /etc/openvpn/client-template.txt
+	echo "##### WWW.GLOBALSSH.NET #####" > /etc/openvpn/client-template.txt
+	echo "##### DONT FORGET TO SUPPORT US #####" > /etc/openvpn/client-template.txt
 	echo "client" > /etc/openvpn/client-template.txt
 	if [[ "$PROTOCOL" = 'udp' ]]; then
 		echo "proto udp" >> /etc/openvpn/client-template.txt
@@ -964,6 +967,7 @@ persist-tun
 remote-cert-tls server
 verify-x509-name $SERVER_NAME name
 auth $HMAC_ALG
+auth-user-pass
 auth-nocache
 cipher $CIPHER
 tls-client
@@ -1033,14 +1037,6 @@ function newClient () {
 		echo "<ca>"
 		cat "/etc/openvpn/easy-rsa/pki/ca.crt"
 		echo "</ca>"
-
-		echo "<cert>"
-		awk '/BEGIN/,/END/' "/etc/openvpn/easy-rsa/pki/issued/$CLIENT.crt"
-		echo "</cert>"
-
-		echo "<key>"
-		cat "/etc/openvpn/easy-rsa/pki/private/$CLIENT.key"
-		echo "</key>"
 
 		case $TLS_SIG in
 			1)
