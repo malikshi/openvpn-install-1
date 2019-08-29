@@ -950,9 +950,9 @@ WantedBy=multi-user.target" > /etc/systemd/system/iptables-openvpn.service
 
 	# client-template.txt is created so we have a template to add further users later
 	echo "##### WELCOME TO GLOBALSSH #####" > /etc/openvpn/client-template.txt
-	echo "##### WWW.GLOBALSSH.NET #####" > /etc/openvpn/client-template.txt
-	echo "##### DONT FORGET TO SUPPORT US #####" > /etc/openvpn/client-template.txt
-	echo "client" > /etc/openvpn/client-template.txt
+	echo "##### WWW.GLOBALSSH.NET #####" >> /etc/openvpn/client-template.txt
+	echo "##### DONT FORGET TO SUPPORT US #####" >> /etc/openvpn/client-template.txt
+	echo "client" >> /etc/openvpn/client-template.txt
 	if [[ "$PROTOCOL" = 'udp' ]]; then
 		echo "proto udp" >> /etc/openvpn/client-template.txt
 	elif [[ "$PROTOCOL" = 'tcp' ]]; then
