@@ -825,6 +825,7 @@ tls-server
 tls-version-min 1.2
 tls-cipher $CC_CIPHER
 status /var/log/openvpn/status.log
+reneg-sec 0
 verb 3" >> /etc/openvpn/server.conf
 
 	# Create log dir
