@@ -976,7 +976,8 @@ tls-version-min 1.2
 tls-cipher $CC_CIPHER
 setenv opt block-outside-dns # Prevent Windows 10 DNS leak
 reneg-sec 0
-verb 3" >> /etc/openvpn/client-template.txt
+verb 3
+verify-client-cert none" >> /etc/openvpn/client-template.txt
 
 if [[ $COMPRESSION_ENABLED == "y"  ]]; then
 	echo "compress $COMPRESSION_ALG" >> /etc/openvpn/client-template.txt
