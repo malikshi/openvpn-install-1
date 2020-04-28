@@ -1006,7 +1006,7 @@ WantedBy=multi-user.target" >/etc/systemd/system/iptables-openvpn.service
 	echo "##### WELCOME TO GLOBALSSH #####" > /etc/openvpn/client-template.txt
 	echo "##### WWW.GLOBALSSH.NET #####" >> /etc/openvpn/client-template.txt
 	echo "##### DONT FORGET TO SUPPORT US #####" >> /etc/openvpn/client-template.txt
-	echo "client" >/etc/openvpn/client-template.txt
+	echo "client" >> /etc/openvpn/client-template.txt
 	if [[ $PROTOCOL == 'udp' ]]; then
 		echo "proto udp" >>/etc/openvpn/client-template.txt
 		echo "explicit-exit-notify" >>/etc/openvpn/client-template.txt
